@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { galleryProjects } from "../data";
 import { GalleryProject } from "../types";
-import { X, ChevronLeft, ChevronRight, Maximize2, MapPin, Calendar, Compass } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function Gallery() {
@@ -57,18 +57,17 @@ export default function Gallery() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16" id="gallery-header">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="h-[1px] w-6 bg-wood-gold" />
+            <span className="h-px w-6 bg-wood-gold" />
             <span className="font-sans text-xs uppercase tracking-[0.2em] font-bold text-wood-walnut">
               Our Gallery
             </span>
-            <span className="h-[1px] w-6 bg-wood-gold" />
+            <span className="h-px w-6 bg-wood-gold" />
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl text-wood-dark font-medium mb-4">
-            Completed Masterpieces
+            Selected Work
           </h2>
           <p className="font-sans text-xs sm:text-sm text-gray-600 tracking-wide leading-relaxed">
-            Take a visual tour of our bespoke wooden installations, tailored wardrobes, modular kitchens, 
-            and modern corporate offices crafted to ultimate perfection.
+            A closer look at our custom woodwork and interior projects, created around each client’s space and needs.
           </p>
         </div>
 
@@ -120,39 +119,6 @@ export default function Gallery() {
                   loading="lazy"
                 />
 
-                {/* Elegant overlay showing project titles & categories */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 z-10" id={`project-card-overlay-${project.id}`}>
-                  <span className="font-sans text-[10px] uppercase tracking-wider text-wood-gold font-bold mb-1">
-                    {project.category}
-                  </span>
-                  
-                  <h4 className="font-serif text-lg text-white font-medium mb-2 leading-snug">
-                    {project.title}
-                  </h4>
-
-                  <div className="flex items-center justify-between text-white/70 font-sans text-[10px] uppercase tracking-wider border-t border-white/10 pt-2.5 mt-1.5">
-                    {project.location && (
-                      <span className="flex items-center gap-1">
-                        <MapPin className="w-3.5 h-3.5 text-wood-gold" />
-                        {project.location}
-                      </span>
-                    )}
-                    <span className="bg-wood-gold/20 text-wood-gold border border-wood-gold/30 px-2 py-0.5 rounded-none flex items-center gap-1 font-bold">
-                      <Maximize2 className="w-3 h-3" />
-                      View Project
-                    </span>
-                  </div>
-                </div>
-
-                {/* Quick Static Info Badge for Non-Hover Devices (touchscreens) */}
-                <div className="md:hidden bg-white p-4 border-t border-wood-walnut/10 flex flex-col">
-                  <span className="font-sans text-[9px] uppercase tracking-wider text-wood-walnut font-bold">
-                    {project.category}
-                  </span>
-                  <h4 className="font-serif text-sm font-semibold text-wood-dark mt-0.5">
-                    {project.title}
-                  </h4>
-                </div>
               </motion.div>
             ))}
           </AnimatePresence>
@@ -172,7 +138,7 @@ export default function Gallery() {
                 <X className="w-6 h-6" />
               </button>
 
-              <div className="relative w-full max-w-5xl flex flex-col lg:flex-row gap-8 items-center justify-center min-h-[50vh] z-40">
+              <div className="relative w-full max-w-5xl flex items-center justify-center min-h-[50vh] z-40">
                 {/* Left Arrow Navigation */}
                 <button
                   onClick={(e) => navigateLightbox("prev", e)}
@@ -190,55 +156,6 @@ export default function Gallery() {
                     alt={currentProject.title}
                     className="max-w-full max-h-[70vh] object-contain rounded-none"
                   />
-                </div>
-
-                {/* Side Info Panel */}
-                <div className="w-full lg:w-1/3 text-left text-white bg-wood-dark/80 backdrop-blur-md border border-wood-walnut/30 p-6 sm:p-8 rounded-none self-stretch flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="inline-flex items-center gap-1.5 bg-wood-gold/10 border border-wood-gold/30 px-2.5 py-1 rounded-none text-[10px] uppercase tracking-wider font-bold text-wood-gold">
-                      <Compass className="w-3.5 h-3.5" />
-                      {currentProject.category} Project
-                    </div>
-                    
-                    <h3 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-white leading-tight">
-                      {currentProject.title}
-                    </h3>
-                    
-                    {currentProject.description && (
-                      <p className="font-sans text-xs text-wood-cream/80 leading-relaxed tracking-wide font-light">
-                        {currentProject.description}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="border-t border-wood-walnut/40 pt-5 mt-6 space-y-3">
-                    <div className="flex items-center justify-between text-xs font-sans tracking-wide">
-                      <span className="text-wood-cream/50">Location:</span>
-                      <span className="text-white font-medium flex items-center gap-1">
-                        <MapPin className="w-3.5 h-3.5 text-wood-gold" />
-                        {currentProject.location || "Tamil Nadu"}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between text-xs font-sans tracking-wide">
-                      <span className="text-wood-cream/50">Completed:</span>
-                      <span className="text-white font-medium flex items-center gap-1">
-                        <Calendar className="w-3.5 h-3.5 text-wood-gold" />
-                        {currentProject.year || "2026"}
-                      </span>
-                    </div>
-                    
-                    {/* Dynamic WhatsApp Inquiry Specific to Project */}
-                    <div className="pt-4">
-                      <a
-                        href={`https://wa.me/916382500986?text=Hi%20Ebenezer%20Wood%20Works,%20I'm%20very%20interested%20in%20a%20design%20similar%20to%20your%20completed%20project:%20"${encodeURIComponent(currentProject.title)}"%20at%20${currentProject.location}.%20Can%20we%20discuss%20pricing?`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="flex items-center justify-center gap-2 w-full bg-green-600 hover:bg-green-700 text-white font-sans text-xs uppercase tracking-wider font-bold py-3.5 rounded-none transition-all"
-                      >
-                        Inquire About This Design
-                      </a>
-                    </div>
-                  </div>
                 </div>
 
                 {/* Right Arrow Navigation */}

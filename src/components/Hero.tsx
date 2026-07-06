@@ -1,6 +1,7 @@
 import React from "react";
 import { ArrowRight, MessageSquare, PhoneCall } from "lucide-react";
 import { motion } from "motion/react";
+import heroImage from "../../assets/TVUnitWork(1).jpeg";
 
 interface HeroProps {
   onQuoteClick: () => void;
@@ -17,7 +18,7 @@ export default function Hero({ onQuoteClick, onAboutClick }: HeroProps) {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-[1.02] transition-transform duration-1000"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1920')`,
+          backgroundImage: `url('${heroImage}')`,
         }}
         id="hero-bg-image"
       />
@@ -87,7 +88,7 @@ export default function Hero({ onQuoteClick, onAboutClick }: HeroProps) {
               className="group bg-wood-gold hover:bg-yellow-500 text-wood-dark font-sans text-xs sm:text-sm font-bold uppercase tracking-widest px-8 py-4 rounded-none transition-all duration-300 shadow-none cursor-pointer flex items-center justify-center gap-2.5"
               id="hero-quote-btn"
             >
-              Get Free Quote
+              Get a Free Consultation
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
 
@@ -110,18 +111,6 @@ export default function Hero({ onQuoteClick, onAboutClick }: HeroProps) {
               About Us
             </button>
           </motion.div>
-        </div>
-      </div>
-
-      {/* Floating indicators at the bottom */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 animate-bounce hidden md:block">
-        <div className="flex flex-col items-center gap-1.5 cursor-pointer" onClick={onAboutClick}>
-          <span className="font-sans text-[9px] uppercase tracking-[0.2em] text-white/50">
-            Scroll to Explore
-          </span>
-          <div className="w-5 h-8 border-2 border-white/30 rounded-full flex items-start justify-center p-1">
-            <div className="w-1 h-2 bg-wood-gold rounded-full animate-scrollDown" />
-          </div>
         </div>
       </div>
     </section>

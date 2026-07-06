@@ -1,4 +1,5 @@
 import React from "react";
+import logoImage from "../../assets/eww.jpeg";
 
 interface LogoProps {
   className?: string;
@@ -43,82 +44,11 @@ export default function Logo({
 
   return (
     <div className={`flex items-center gap-3 select-none ${className}`}>
-      {/* Precision-crafted SVG tree logo resembling the joinery work of Ebenezer Wood Works */}
-      <svg
-        className={`${sizeClasses[size]} aspect-square`}
-        viewBox="0 0 120 120"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {/* Foundation Arch */}
-        <path
-          d="M 25 75 A 35 35 0 0 0 95 75"
-          className={`${selectedColors.tree}`}
-          strokeWidth="3.5"
-          strokeLinecap="round"
-        />
-        
-        {/* Central Trunk forming the 'T' or pillar joinery */}
-        <path
-          d="M 60 45 L 60 90"
-          className={`${selectedColors.tree}`}
-          strokeWidth="5"
-          strokeLinecap="round"
-        />
-        <path
-          d="M 50 90 L 70 90"
-          className={`${selectedColors.tree}`}
-          strokeWidth="5"
-          strokeLinecap="round"
-        />
-        
-        {/* Level 1 Bottom Branches (Joinery) */}
-        <path
-          d="M 60 70 L 40 50 M 40 50 L 40 40 M 40 50 L 30 50"
-          className={`${selectedColors.tree}`}
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M 60 70 L 80 50 M 80 50 L 80 40 M 80 50 L 90 50"
-          className={`${selectedColors.tree}`}
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-
-        {/* Level 2 Mid Branches */}
-        <path
-          d="M 60 55 L 45 35 M 45 35 L 55 35 M 45 35 L 45 25"
-          className={`${selectedColors.tree}`}
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M 60 55 L 75 35 M 75 35 L 65 35 M 75 35 L 75 25"
-          className={`${selectedColors.tree}`}
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-
-        {/* Level 3 Top Branches (Crown) */}
-        <path
-          d="M 60 40 L 50 20 L 60 10 L 70 20 L 60 40"
-          className={`${selectedColors.tree}`}
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M 60 25 L 60 10"
-          className={`${selectedColors.tree}`}
-          strokeWidth="3"
-          strokeLinecap="round"
-        />
-      </svg>
+      <img
+        src={logoImage}
+        alt="Ebenezer Wood Works logo"
+        className={`${sizeClasses[size]} w-auto object-contain rounded-md`}
+      />
 
       {showText && (
         <div className="flex flex-col justify-center">

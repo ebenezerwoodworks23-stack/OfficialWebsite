@@ -94,13 +94,13 @@ export default function WhyChooseUs() {
         {/* Trust Badges Bar */}
         <div className="mt-16 pt-12 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white/50 font-sans text-[10px] uppercase tracking-widest font-bold">
           <div className="flex flex-col items-center gap-1">
-            <span className="text-wood-gold text-lg">✔</span> BWP Marine Plywood
+            <span className="text-wood-gold text-lg">✔</span> Premium Mica Finish
           </div>
           <div className="flex flex-col items-center gap-1">
-            <span className="text-wood-gold text-lg">✔</span> 100% Termite Treated
+            <span className="text-wood-gold text-lg">✔</span> MDF (Medium Density Fiberboard)
           </div>
           <div className="flex flex-col items-center gap-1">
-            <span className="text-wood-gold text-lg">✔</span> ISO Certified Machinery
+            <span className="text-wood-gold text-lg">✔</span> Novopan Board
           </div>
           <div className="flex flex-col items-center gap-1">
             <span className="text-wood-gold text-lg">✔</span> No Hidden Costs

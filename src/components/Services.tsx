@@ -10,10 +10,7 @@ import {
   Briefcase, 
   Columns, 
   Wrench, 
-  Utensils, 
-  BedDouble, 
   Compass, 
-  Building, 
   Home, 
   X, 
   Check, 
@@ -32,10 +29,7 @@ const iconMap: { [key: string]: any } = {
   Briefcase,
   Columns,
   Wrench,
-  Utensils,
-  BedDouble,
   Compass,
-  Building,
   Home
 };
 
@@ -62,22 +56,22 @@ export default function Services({ onSelectServiceForQuote }: ServicesProps) {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16" id="services-header">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="h-[1px] w-6 bg-wood-gold" />
+            <span className="h-px w-6 bg-wood-gold" />
             <span className="font-sans text-xs uppercase tracking-[0.2em] font-bold text-wood-walnut">
               Our Expertise
             </span>
-            <span className="h-[1px] w-6 bg-wood-gold" />
+            <span className="h-px w-6 bg-wood-gold" />
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl text-wood-dark font-medium mb-4">
             Bespoke Woodworking & Interiors
           </h2>
           <p className="font-sans text-xs sm:text-sm text-gray-600 tracking-wide leading-relaxed">
-            From modern modular kitchens with fluid hardware to custom heritage carvings in solid teak, 
+            From modern modular kitchens with fluid hardware to custom heritage carvings and statement interiors, 
             Ebenezer Wood Works elevates spaces with absolute durability and elite aesthetics.
           </p>
         </div>
 
-        {/* Services Grid (All 13 standard custom services) */}
+        {/* Services Grid (featured custom services) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
           {servicesData.map((service, index) => {
             const IconComponent = iconMap[service.iconName] || Home;
@@ -88,7 +82,7 @@ export default function Services({ onSelectServiceForQuote }: ServicesProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: Math.min(index * 0.05, 0.3) }}
-                className="group bg-white border border-[#C9A227]/20 hover:border-wood-gold/50 rounded-none overflow-hidden shadow-none transition-all duration-300 flex flex-col h-full"
+                className="group bg-white border border-wood-gold/20 hover:border-wood-gold/50 rounded-none overflow-hidden shadow-none transition-all duration-300 flex flex-col h-full"
                 id={`service-card-${service.id}`}
               >
                 {/* Card Image Area with visual zoom and category hover effect */}
@@ -99,7 +93,7 @@ export default function Services({ onSelectServiceForQuote }: ServicesProps) {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
                   
                   {/* Absolute Badge Float holding the icon */}
                   <div className="absolute bottom-4 left-4 bg-wood-dark/90 backdrop-blur-sm border border-wood-gold/30 p-2.5 rounded-none shadow-sm flex items-center justify-center">
@@ -108,12 +102,12 @@ export default function Services({ onSelectServiceForQuote }: ServicesProps) {
                 </div>
 
                 {/* Card Content */}
-                <div className="p-6 flex flex-col flex-grow">
+                <div className="p-6 flex flex-col grow">
                   <h3 className="font-serif text-lg font-semibold text-wood-dark mb-2.5 group-hover:text-wood-gold transition-colors duration-300">
                     {service.title}
                   </h3>
                   
-                  <p className="font-sans text-xs text-gray-600 leading-relaxed tracking-wide mb-6 flex-grow">
+                  <p className="font-sans text-xs text-gray-600 leading-relaxed tracking-wide mb-6 grow">
                     {service.shortDescription}
                   </p>
 
@@ -181,7 +175,7 @@ export default function Services({ onSelectServiceForQuote }: ServicesProps) {
                     alt={selectedService.title}
                     className="w-full h-full object-cover absolute inset-0"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-wood-dark/95 via-wood-dark/40 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-wood-dark/95 via-wood-dark/40 to-transparent" />
                   
                   <div className="absolute bottom-6 left-6 right-6">
                     <span className="inline-block bg-wood-gold text-wood-dark text-[10px] uppercase tracking-widest font-bold px-2 py-1 mb-2 rounded-none">
@@ -214,7 +208,7 @@ export default function Services({ onSelectServiceForQuote }: ServicesProps) {
                     <ul className="space-y-2">
                       {selectedService.features.map((feat, i) => (
                         <li key={i} className="flex gap-2.5 items-start text-xs text-gray-600 leading-relaxed">
-                          <Check className="w-4 h-4 text-wood-gold flex-shrink-0 mt-0.5" />
+                          <Check className="w-4 h-4 text-wood-gold shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </li>
                       ))}

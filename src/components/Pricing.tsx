@@ -110,13 +110,13 @@ export default function Pricing({ onSelectServiceForQuote }: PricingProps) {
 Material Chosen: ${materialName} (₹${pricePerSqFt}/sq.ft.)
 Dimensions: ${dimensionString}
 Estimated Cost: ₹${totalCost.toLocaleString("en-IN")}
-Please contact me for a formal site measurement and detailed quotation.`;
+Please contact me for a free consultation and detailed quotation.`;
 
     onSelectServiceForQuote("Custom Furniture", message);
   };
 
   const handleCardQuoteClick = (materialName: string, price: number) => {
-    const message = `I am interested in getting a custom quote for woodwork with the "${materialName}" option (priced at ₹${price}/sq.ft.). Please get in touch for measurements.`;
+    const message = `I am interested in getting a custom quote for woodwork with the "${materialName}" option (priced at ₹${price}/sq.ft.). Please get in touch for a free consultation.`;
     onSelectServiceForQuote("Custom Furniture", message);
   };
 
@@ -365,7 +365,7 @@ Please contact me for a formal site measurement and detailed quotation.`;
                       {area} <span className="font-sans text-[11px] font-normal uppercase text-[#6D4C41]">sq.ft.</span>
                     </span>
                   </div>
-                  <div className="text-right sm:text-right text-center">
+                  <div className="text-right">
                     <span className="block font-sans text-[9px] uppercase tracking-widest text-[#C9A227] font-bold mb-0.5">
                       Estimated Cost (Material + Basic Fab)*
                     </span>
@@ -403,10 +403,10 @@ Please contact me for a formal site measurement and detailed quotation.`;
                 Exclusive Homeowner Program
               </span>
               <h3 className="font-serif text-3xl sm:text-4xl leading-tight font-medium">
-                Get a Free <span className="italic">Measurement & Quote</span>
+                Get a Free <span className="italic">Consultation</span>
               </h3>
               <p className="text-xs text-white/70 max-w-xl leading-relaxed">
-                Contact Ebenezer Wood Works today. We will dispatch our design representatives to your site to perform precise measurements, discuss design templates, and provide a comprehensive catalog estimate with absolutely no obligations.
+                Contact Ebenezer Wood Works today to discuss your ideas, explore design templates, and receive a comprehensive catalog estimate with absolutely no obligations.
               </p>
               
               {/* Hot Contact channels */}
@@ -450,7 +450,7 @@ Please contact me for a formal site measurement and detailed quotation.`;
                 WhatsApp Now
               </a>
               <button
-                onClick={() => onSelectServiceForQuote("Complete Home Interiors", "I am requesting a free measurement and design consult.")}
+                onClick={() => onSelectServiceForQuote("Complete Home Interiors", "I am requesting a free consultation and design discussion.")}
                 className="px-6 py-4 bg-white hover:bg-gray-100 text-[#4E342E] font-sans text-[10px] font-bold uppercase tracking-widest text-center transition-all duration-300 rounded-none cursor-pointer"
               >
                 Request Free Quote

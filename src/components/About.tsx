@@ -1,27 +1,28 @@
 import React from "react";
 import { Check, ShieldCheck, Ruler, ThumbsUp, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
+import aboutImage from "../../assets/WardrobeWork(1).jpeg";
 
 export default function About() {
   const highlights = [
     {
       title: "Exceptional Quality",
-      description: "Only boiling-water-proof (BWP) marine plywood, genuine teak, and premium veneers.",
+      description: "Carefully selected materials and clean finishing for lasting use.",
       icon: ShieldCheck,
     },
     {
       title: "Absolute Precision",
-      description: "Precise digital site measurements and automated factory cutting for millimetre fitment.",
+      description: "Accurate site measurements and careful cutting for a proper fit.",
       icon: Ruler,
     },
     {
-      title: "Durable & Warranted",
-      description: "Termite-treated, warp-resistant structures supported by multi-year warranties.",
+      title: "Durable & Reliable",
+      description: "Strong construction with dependable finishing and long-lasting use.",
       icon: ThumbsUp,
     },
     {
-      title: "Customer First",
-      description: "100% customer satisfaction with post-purchase maintenance support.",
+      title: "Made for Your Space",
+      description: "Custom designs shaped around your layout, needs, and preferences.",
       icon: Sparkles,
     },
   ];
@@ -40,7 +41,7 @@ export default function About() {
             {/* Main Premium Wood Crafting Image */}
             <div className="relative rounded-none overflow-hidden shadow-xl border border-[#C9A227]/20 aspect-square sm:aspect-[4/5] lg:aspect-square">
               <img
-                src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=80&w=800"
+                src={aboutImage}
                 alt="Woodcraft Craftsmanship"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 loading="lazy"
@@ -105,23 +106,23 @@ export default function About() {
             {/* Secondary CTA indicators */}
             <div className="flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-wood-walnut/15 pt-8">
               <div className="flex flex-col">
-                <span className="font-serif text-3xl font-semibold text-wood-dark">1,500+</span>
+                <span className="font-serif text-2xl font-semibold text-wood-dark">Made to Order</span>
                 <span className="font-sans text-[10px] uppercase tracking-wider font-bold text-gray-500 mt-1">
-                  Spaces Perfected
+                  Custom work for your space
                 </span>
               </div>
               <div className="w-[1px] h-8 bg-wood-walnut/20 hidden sm:block" />
               <div className="flex flex-col">
-                <span className="font-serif text-3xl font-semibold text-wood-dark">100%</span>
+                <span className="font-serif text-2xl font-semibold text-wood-dark">Site Measurement</span>
                 <span className="font-sans text-[10px] uppercase tracking-wider font-bold text-gray-500 mt-1">
-                  Marine Ply Materials
+                  Correct measurements before work
                 </span>
               </div>
               <div className="w-[1px] h-8 bg-wood-walnut/20 hidden sm:block" />
               <div className="flex flex-col">
-                <span className="font-serif text-3xl font-semibold text-wood-dark">5-Year</span>
+                <span className="font-serif text-2xl font-semibold text-wood-dark">Clean Finish</span>
                 <span className="font-sans text-[10px] uppercase tracking-wider font-bold text-gray-500 mt-1">
-                  Absolute Warranty
+                  Careful completion and fitting
                 </span>
               </div>
             </div>

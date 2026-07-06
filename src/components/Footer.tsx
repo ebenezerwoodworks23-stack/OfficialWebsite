@@ -4,8 +4,6 @@ import {
   Phone, 
   Mail, 
   MapPin, 
-  Facebook, 
-  Instagram, 
   MessageSquare, 
   ArrowUp,
   Clock
@@ -31,8 +29,8 @@ export default function Footer() {
     { label: "TV Panel Units", id: "services" },
     { label: "Bedroom Interiors", id: "services" },
     { label: "Office & Study Desks", id: "services" },
-    { label: "CNC Pooja Units", id: "services" },
-    { label: "Handcrafted Teak Furniture", id: "services" },
+    { label: "Pooja Units", id: "services" },
+    { label: "Custom Furniture", id: "services" },
   ];
 
   const scrollToSection = (id: string) => {
@@ -75,30 +73,10 @@ export default function Footer() {
             </div>
             
             <p className="font-sans text-xs text-wood-cream/80 leading-relaxed max-w-sm font-light">
-              Ebenezer Wood Works is a premier wood manufacturing and turnkey interior design company. 
-              We transform private residences and executive offices with elite wooden fittings, 
-              crafted by generational master woodworkers.
+              Ebenezer Wood Works creates custom interiors and furniture for homes and offices with careful planning and clean finishing.
             </p>
 
             <div className="flex gap-3" id="footer-social-icons">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-9 h-9 rounded-none bg-white/5 hover:bg-wood-gold hover:text-wood-dark border border-white/10 flex items-center justify-center transition-all"
-                aria-label="Facebook Link"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-9 h-9 rounded-none bg-white/5 hover:bg-wood-gold hover:text-wood-dark border border-white/10 flex items-center justify-center transition-all"
-                aria-label="Instagram Link"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
               <a
                 href="https://wa.me/916382500986?text=Hi%20Ebenezer%20Wood%20Works,%20I'd%20like%20to%20get%20a%20free%20woodwork%20estimate."
                 target="_blank"
@@ -204,7 +182,7 @@ export default function Footer() {
                     Design Studios
                   </span>
                   <span className="font-sans text-xs text-wood-cream/80 font-semibold block leading-relaxed">
-                    Chennai & Salem, <br />Tamil Nadu, India
+                    Madurai, <br />Tamil Nadu, India
                   </span>
                 </div>
               </li>

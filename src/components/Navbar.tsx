@@ -82,79 +82,83 @@ export default function Navbar({ onQuoteClick }: NavbarProps) {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            {/* Logo in top-left */}
-            <div
-              className="cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
-              onClick={() => scrollToSection("home")}
-              id="navbar-logo-container"
-            >
-              <Logo variant="light" size="md" />
+          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex items-center justify-between gap-4 lg:justify-start">
+              {/* Logo in top-left */}
+              <div
+                className="cursor-pointer transition-transform duration-300 hover:scale-[1.02] flex-shrink-0"
+                onClick={() => scrollToSection("home")}
+                id="navbar-logo-container"
+              >
+                <Logo variant="light" size="md" />
+              </div>
+
+              {/* Mobile Toggle Button */}
+              <div className="flex lg:hidden items-center gap-2" id="navbar-mobile-toggle">
+                <button
+                  onClick={onQuoteClick}
+                  className="bg-wood-gold hover:bg-yellow-500 text-wood-dark font-sans text-[10px] font-bold uppercase tracking-wider px-3 py-2 rounded-none transition-all duration-300 shadow-none cursor-pointer"
+                  id="navbar-mobile-quote-btn"
+                >
+                  Quote
+                </button>
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="text-white p-1 hover:text-wood-gold transition-colors focus:outline-none"
+                  id="navbar-mobile-hamburger"
+                  aria-label="Toggle Menu"
+                >
+                  {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                </button>
+              </div>
             </div>
 
             {/* Desktop Menu */}
-            <nav className="hidden lg:flex items-center gap-6" id="navbar-desktop-nav">
-              {menuItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`relative font-sans text-xs uppercase tracking-wider font-semibold transition-colors duration-300 cursor-pointer py-1 ${
-                    activeSection === item.id
-                      ? "text-wood-gold"
-                      : "text-white/90 hover:text-wood-gold"
-                  }`}
-                  id={`nav-link-${item.id}`}
+            <div className="hidden lg:flex flex-1 items-center justify-end gap-4 xl:gap-6">
+              <nav className="flex flex-wrap items-center justify-end gap-3 xl:gap-4" id="navbar-desktop-nav">
+                {menuItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`relative font-sans text-[11px] uppercase tracking-wider font-semibold transition-colors duration-300 cursor-pointer py-1 ${
+                      activeSection === item.id
+                        ? "text-wood-gold"
+                        : "text-white/90 hover:text-wood-gold"
+                    }`}
+                    id={`nav-link-${item.id}`}
+                  >
+                    {item.label}
+                    {activeSection === item.id && (
+                      <motion.div
+                        layoutId="activeIndicator"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-wood-gold"
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                  </button>
+                ))}
+              </nav>
+
+              {/* Desktop Action Buttons */}
+              <div className="flex items-center gap-2 xl:gap-3" id="navbar-desktop-actions">
+                <a
+                  href="https://wa.me/916382500986?text=Hi%20Ebenezer%20Wood%20Works,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-white border border-white/20 hover:border-wood-gold hover:text-wood-gold bg-black/10 px-3 py-2 rounded-none transition-all duration-300 hover:bg-black/20"
+                  id="navbar-whatsapp-button"
                 >
-                  {item.label}
-                  {activeSection === item.id && (
-                    <motion.div
-                      layoutId="activeIndicator"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-wood-gold"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    />
-                  )}
+                  <MessageSquare className="w-4 h-4 text-green-400" />
+                  WhatsApp
+                </a>
+                <button
+                  onClick={onQuoteClick}
+                  className="bg-wood-gold hover:bg-yellow-500 text-wood-dark font-sans text-[11px] font-bold uppercase tracking-wider px-4 py-2 rounded-none transition-all duration-300 shadow-none cursor-pointer"
+                  id="navbar-quote-button"
+                >
+                  Get Free Quote
                 </button>
-              ))}
-            </nav>
-
-            {/* Desktop Action Buttons */}
-            <div className="hidden lg:flex items-center gap-3" id="navbar-desktop-actions">
-              <a
-                href="https://wa.me/916382500986?text=Hi%20Ebenezer%20Wood%20Works,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white border border-white/20 hover:border-wood-gold hover:text-wood-gold bg-black/10 px-4 py-2.5 rounded-none transition-all duration-300 hover:bg-black/20"
-                id="navbar-whatsapp-button"
-              >
-                <MessageSquare className="w-4 h-4 text-green-400" />
-                WhatsApp
-              </a>
-              <button
-                onClick={onQuoteClick}
-                className="bg-wood-gold hover:bg-yellow-500 text-wood-dark font-sans text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-none transition-all duration-300 shadow-none cursor-pointer"
-                id="navbar-quote-button"
-              >
-                Get Free Quote
-              </button>
-            </div>
-
-            {/* Mobile Toggle Button */}
-            <div className="flex lg:hidden items-center gap-2" id="navbar-mobile-toggle">
-              <button
-                onClick={onQuoteClick}
-                className="bg-wood-gold hover:bg-yellow-500 text-wood-dark font-sans text-[10px] font-bold uppercase tracking-wider px-3 py-2 rounded-none transition-all duration-300 shadow-none cursor-pointer"
-                id="navbar-mobile-quote-btn"
-              >
-                Quote
-              </button>
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-white p-1 hover:text-wood-gold transition-colors focus:outline-none"
-                id="navbar-mobile-hamburger"
-                aria-label="Toggle Menu"
-              >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
+              </div>
             </div>
           </div>
         </div>

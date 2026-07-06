@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ContactForm } from "../types";
+import { saveConsultation } from "../lib/consultationStore";
 import { Phone, Mail, MessageSquare, Send, CheckCircle2, ShieldAlert } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -63,10 +64,7 @@ export default function Contact({
     "Office Interiors",
     "Wooden Partitions",
     "Custom Furniture",
-    "Dining Tables",
-    "Beds",
     "Pooja Units",
-    "Commercial Interiors",
     "Complete Home Interiors",
   ];
 
@@ -105,10 +103,14 @@ export default function Contact({
 
     setIsSubmitting(true);
 
-    // Simulate luxury API submission delay
+    const submission = saveConsultation(form);
+    const whatsappMessage = `Hi Ebenezer Wood Works, I would like to schedule a free design consultation.%0A%0A*Name:* ${encodeURIComponent(form.name)}%0A*Phone:* ${encodeURIComponent(form.phone)}%0A*Email:* ${encodeURIComponent(form.email || "N/A")}%0A*Service Required:* ${encodeURIComponent(form.serviceRequired)}%0A*Message:* ${encodeURIComponent(form.message || "Looking for premium design options.")} %0A%0A*Stored ID:* ${encodeURIComponent(submission.id)}`;
+    const whatsappUrl = `https://wa.me/916382500986?text=${whatsappMessage}`;
+
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
       clearPreSelectedService();
       clearPreFilledMessage();
     }, 1200);
@@ -162,9 +164,8 @@ export default function Contact({
               </h2>
 
               <p className="font-sans text-xs sm:text-sm text-gray-600 leading-relaxed tracking-wide">
-                Get in touch with us to schedule an obligation-free design consultation. 
-                Our structural wood engineers will visit your site to take perfect measurements and share 
-                exquisite catalogs.
+                Get in touch with us to schedule an obligation-free design consultation.
+                Our team will guide you through the options and share exquisite catalogs.
               </p>
 
               {/* Quick Contact Action Buttons */}

@@ -1,0 +1,6 @@
+{
+  "name": "Ebenezer Wood Works",
+  "description": "Luxurious custom woodwork, premium modular kitchens, wardrobes, bedroom interiors, and custom furniture crafted with exceptional precision.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
